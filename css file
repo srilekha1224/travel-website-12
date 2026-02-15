@@ -1,0 +1,26 @@
+body { font-family: Arial; margin: 0; }
+header { background: #0077b6; color: white; padding: 15px; text-align: center; }
+nav a { color: white; margin: 10px; text-decoration: none; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.card:hover { transform: scale(1.05); }
+
+.slider img { width: 100%; height: 400px; object-fit: cover; }
+
+form { display: flex; flex-direction: column; width: 300px; margin: auto; gap: 10px; }
+input, button { padding: 10px; }
+
+table { width: 80%; margin: auto; border-collapse: collapse; }
+th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }

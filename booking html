@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Book Your Trip</h1>
+  <form onsubmit="return validateDate()">
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email" required>
+    <input type="date" id="date" required>
+    <button type="submit">Book Now</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
