@@ -2,34 +2,67 @@
 <html>
 <head>
     <title>Admin Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Submitted Contact Details</h1>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="packages.html">Packages</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="booking.html">Booking</a>
+    <a href="contact.html">Contact</a>
+    <a href="admin.html">Admin</a>
+</nav>
 
+<h1>Admin Panel</h1>
+
+<!-- CONTACT DATA -->
+<h2>Contact Details</h2>
 <table border="1">
     <tr>
         <th>Name</th>
         <th>Email</th>
         <th>Message</th>
     </tr>
-    <tbody id="tableData"></tbody>
+    <tbody id="contactData"></tbody>
+</table>
+
+<!-- BOOKING DATA -->
+<h2>Booking Details</h2>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Destination</th>
+        <th>People</th>
+    </tr>
+    <tbody id="bookingData"></tbody>
 </table>
 
 <script>
-// get stored data
+// CONTACT DATA
 let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+let contactTable = document.getElementById("contactData");
 
-// find table
-let table = document.getElementById("tableData");
-
-// display data
 contacts.forEach(function(data) {
-    let row = table.insertRow();
-
+    let row = contactTable.insertRow();
     row.insertCell(0).innerHTML = data.name;
     row.insertCell(1).innerHTML = data.email;
     row.insertCell(2).innerHTML = data.message;
+});
+
+// BOOKING DATA
+let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+let bookingTable = document.getElementById("bookingData");
+
+bookings.forEach(function(data) {
+    let row = bookingTable.insertRow();
+    row.insertCell(0).innerHTML = data.name;
+    row.insertCell(1).innerHTML = data.email;
+    row.insertCell(2).innerHTML = data.destination;
+    row.insertCell(3).innerHTML = data.people;
 });
 </script>
 
