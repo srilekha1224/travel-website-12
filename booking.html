@@ -18,7 +18,7 @@
 
 <h1>Book Your Trip</h1>
 
-<form id="bookingForm">
+<form onsubmit="saveBooking(event)">
     Name:<br>
     <input type="text" id="name" required><br><br>
 
@@ -28,14 +28,14 @@
     Destination:<br>
     <input type="text" id="destination" required><br><br>
 
-    Number of People:<br>
+    People:<br>
     <input type="number" id="people" required><br><br>
 
     <button type="submit">Book Now</button>
 </form>
 
 <script>
-document.getElementById("bookingForm").addEventListener("submit", function(e){
+function saveBooking(e){
     e.preventDefault();
 
     let name = document.getElementById("name").value;
@@ -45,19 +45,14 @@ document.getElementById("bookingForm").addEventListener("submit", function(e){
 
     let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
 
-    bookings.push({
-        name: name,
-        email: email,
-        destination: destination,
-        people: people
-    });
+    bookings.push({name, email, destination, people});
 
     localStorage.setItem("bookings", JSON.stringify(bookings));
 
-    alert("Booking Submitted Successfully!");
+    alert("Booking Saved!");
 
-    document.getElementById("bookingForm").reset();
-});
+    window.location.href = "admin.html";
+}
 </script>
 
 </body>
