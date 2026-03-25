@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+</head>
+<body>
+
+<h1>Submitted Contact Details</h1>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+    </tr>
+    <tbody id="tableData"></tbody>
+</table>
+
+<script>
+// get stored data
+let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+
+// find table
+let table = document.getElementById("tableData");
+
+// display data
+contacts.forEach(function(data) {
+    let row = table.insertRow();
+
+    row.insertCell(0).innerHTML = data.name;
+    row.insertCell(1).innerHTML = data.email;
+    row.insertCell(2).innerHTML = data.message;
+});
+</script>
+
+</body>
+</html>
