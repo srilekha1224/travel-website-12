@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Page</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,51 +18,49 @@
 
 <h1>Admin Panel</h1>
 
-<!-- CONTACT DATA -->
 <h2>Contact Details</h2>
 <table border="1">
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Message</th>
-    </tr>
-    <tbody id="contactData"></tbody>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Message</th>
+</tr>
+<tbody id="contactTable"></tbody>
 </table>
 
-<!-- BOOKING DATA -->
 <h2>Booking Details</h2>
 <table border="1">
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Destination</th>
-        <th>People</th>
-    </tr>
-    <tbody id="bookingData"></tbody>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Destination</th>
+<th>People</th>
+</tr>
+<tbody id="bookingTable"></tbody>
 </table>
 
 <script>
-// CONTACT DATA
+// Contact Data
 let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
-let contactTable = document.getElementById("contactData");
+let contactTable = document.getElementById("contactTable");
 
-contacts.forEach(function(data) {
+contacts.forEach(function(c){
     let row = contactTable.insertRow();
-    row.insertCell(0).innerHTML = data.name;
-    row.insertCell(1).innerHTML = data.email;
-    row.insertCell(2).innerHTML = data.message;
+    row.insertCell(0).innerText = c.name;
+    row.insertCell(1).innerText = c.email;
+    row.insertCell(2).innerText = c.message;
 });
 
-// BOOKING DATA
+// Booking Data
 let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-let bookingTable = document.getElementById("bookingData");
+let bookingTable = document.getElementById("bookingTable");
 
-bookings.forEach(function(data) {
+bookings.forEach(function(b){
     let row = bookingTable.insertRow();
-    row.insertCell(0).innerHTML = data.name;
-    row.insertCell(1).innerHTML = data.email;
-    row.insertCell(2).innerHTML = data.destination;
-    row.insertCell(3).innerHTML = data.people;
+    row.insertCell(0).innerText = b.name;
+    row.insertCell(1).innerText = b.email;
+    row.insertCell(2).innerText = b.destination;
+    row.insertCell(3).innerText = b.people;
 });
 </script>
 
